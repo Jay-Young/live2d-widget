@@ -1,6 +1,6 @@
 /*
  * Live2D Widget
- * https://github.com/stevenjoezhang/live2d-widget
+ * https://github.com/Jay-Young/live2d-widget
  */
 
 function loadWidget(config) {
@@ -18,12 +18,12 @@ function loadWidget(config) {
 			<canvas id="live2d" width="300" height="300"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-paper-plane"></span>
-				<span class="fa fa-lg fa-user-circle"></span>
+				<span class="fa fa-lg fa-weibo"></span>
+				<span class="fa fa-lg fa-female"></span>
 				<span class="fa fa-lg fa-street-view"></span>
 				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-info-circle"></span>
-				<span class="fa fa-lg fa-times"></span>
+				<span class="fa fa-lg fa-github"></span>
+				<span class="fa fa-lg fa-power-off"></span>
 			</div>
 		</div>`);
 	// https://stackoverflow.com/questions/24148403/trigger-css-transition-on-appended-element
@@ -38,7 +38,7 @@ function loadWidget(config) {
 	let userAction = false,
 		userActionTimer,
 		messageTimer,
-		messageArray = ["好久不见，日子过得好快呢……", "大坏蛋！你都多久没理人家了呀，嘤嘤嘤～", "嗨～快来逗我玩吧！", "拿小拳拳锤你胸口！", "记得把小家加入 Adblock 白名单哦！"];
+		messageArray = ["好久不见，日子过得好快呢……", "大坏蛋！你都多久没理人家了呀，嘤嘤嘤～", "嗨～快来逗我玩吧！", "拿小拳拳锤你胸口！", "记得把人家加入 Adblock 白名单哦！"];
 	window.addEventListener("mousemove", () => userAction = true);
 	window.addEventListener("keydown", () => userAction = true);
 	setInterval(() => {
@@ -55,7 +55,7 @@ function loadWidget(config) {
 
 	(function registerEventListener() {
 		document.querySelector("#waifu-tool .fa-comment").addEventListener("click", showHitokoto);
-		document.querySelector("#waifu-tool .fa-paper-plane").addEventListener("click", () => {
+		/*document.querySelector("#waifu-tool .fa-paper-plane").addEventListener("click", () => {
 			if (window.Asteroids) {
 				if (!window.ASTEROIDSPLAYERS) window.ASTEROIDSPLAYERS = [];
 				window.ASTEROIDSPLAYERS.push(new Asteroids());
@@ -64,18 +64,18 @@ function loadWidget(config) {
 				script.src = "https://cdn.jsdelivr.net/gh/GalaxyMimi/CDN/asteroids.js";
 				document.head.appendChild(script);
 			}
-		});
-		document.querySelector("#waifu-tool .fa-user-circle").addEventListener("click", loadOtherModel);
+		});*/
+		document.querySelector("#waifu-tool .fa-female").addEventListener("click", loadOtherModel);
 		document.querySelector("#waifu-tool .fa-street-view").addEventListener("click", loadRandModel);
 		document.querySelector("#waifu-tool .fa-camera-retro").addEventListener("click", () => {
 			showMessage("照好了嘛，是不是很可爱呢？", 6000, 9);
 			Live2D.captureName = "photo.png";
 			Live2D.captureFrame = true;
 		});
-		document.querySelector("#waifu-tool .fa-info-circle").addEventListener("click", () => {
-			open("https://github.com/stevenjoezhang/live2d-widget");
+		document.querySelector("#waifu-tool .fa-github").addEventListener("click", () => {
+			open("https://github.com/Jay-Young/live2d-widget");
 		});
-		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
+		document.querySelector("#waifu-tool .fa-power-off").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
 			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
 			document.getElementById("waifu").style.bottom = "-500px";
@@ -83,6 +83,9 @@ function loadWidget(config) {
 				document.getElementById("waifu").style.display = "none";
 				document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");
 			}, 3000);
+		});
+		document.querySelector("#waifu-tool .fa-weibo").addEventListener("click", () => {
+			open("https://weibo.com/jayyoung1");
 		});
 		let devtools = () => {};
 		console.log("%c", devtools);
@@ -156,10 +159,55 @@ function loadWidget(config) {
 	(function initModel() {
 		let modelId = localStorage.getItem("modelId"),
 			modelTexturesId = localStorage.getItem("modelTexturesId");
+		function seasonSwitch() {
+			let month = new Date().getMonth(), date = new Date().getDate();
+			switch (month) {
+				case 11:
+					// 定义平安夜和圣诞节看板娘
+					if (date === 24 || date === 25) {
+						modelId = 2;
+						modelTexturesId = 45;
+						break;
+					}
+				case 0:
+				case 1:
+					// 定义冬季看板娘
+					modelId = 2;
+					modelTexturesId = 53;
+					break;
+				case 2:
+				case 3:
+				case 4:
+					// 定义春季看板娘
+					modelId = 2;
+					modelTexturesId = 46;
+					break;
+				case 5:
+				case 6:
+				case 7:
+					// 定义夏季看板娘
+					modelId = 2;
+					modelTexturesId = 5;
+					break;
+				case 8:
+				case 9:
+				case 10:
+					// 定义秋季看板娘
+					modelId = 2;
+					modelTexturesId = 52;
+					break;
+				default:
+					// 默认看板娘
+					modelId = 2;
+					modelTexturesId = 4;
+					break;
+			}
+		}
+		seasonSwitch();
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 1; // 模型 ID
-			modelTexturesId = 53; // 材质 ID
+			modelId = 2; // 模型 ID
+			modelTexturesId = 4; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
 		fetch(waifuPath)
