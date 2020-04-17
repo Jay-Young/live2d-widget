@@ -27,26 +27,29 @@
 		"selector": "#waifu-tool .fa-weibo",
 		"text": ["客官，你要去主人的微博看看吗？", "生活不能没有态度！", "转转悠悠，我想和这个世界谈谈。"]
 	}, {
-		"selector": ".menu-item-home",
+		"selector": ".menu-item-home a",
 		"text": ["点击前往首页，想回到上一页可以使用浏览器的后退功能哦。", "点它就可以回到首页啦！", "回首页看看吧。"]
 	}, {
-		"selector": ".menu-item-about",
+		"selector": ".menu-item-about a",
 		"text": ["你想知道我家主人是谁吗？", "这里有一些关于我家主人的秘密哦，要不要看看呢？", "发现主人出没地点！"]
 	}, {
-		"selector": ".menu-item-tags",
+		"selector": ".menu-item-tags a",
 		"text": ["点击就可以看文章的标签啦！", "点击来查看所有标签哦。", "快看看这里都有什么呢！"]
 	}, {
-		"selector": ".menu-item-categories",
+		"selector": ".menu-item-categories a",
 		"text": ["文章都分类好啦～", "点击来查看文章分类哦。", "快看看这里都有什么呢！"]
 	}, {
-		"selector": ".menu-item-archives",
+		"selector": ".menu-item-archives a",
 		"text": ["翻页比较麻烦吗，那就来看看文章归档吧。", "文章目录都整理在这里啦！", "快看看这里都有什么呢？"]
 	}, {
-		"selector": ".menu-item-friends",
+		"selector": ".menu-item-friends a",
 		"text": ["这是我的朋友们哦ヾ(◍°∇°◍)ﾉﾞ", "要去大佬们的家看看吗？", "要去拜访一下我的朋友们吗？"]
 	}, {
-		"selector": ".menu-item-search",
+		"selector": ".menu-item-search a",
 		"text": ["找不到想看的内容？搜索看看吧！", "在找什么东西呢，需要帮忙吗？"]
+	}, {
+		"selector": ".menu-item a",
+		"text": ["快看看这里都有什么呢？"]
 	}, {
 		"selector": ".site-author",
 		"text": ["我家主人好看吗？", "这是我家主人(*´∇｀*)"]
@@ -69,11 +72,11 @@
 		"selector": ".fancybox img, img.medium-zoom-image",
 		"text": ["点击图片可以放大呢！"]
 	}, {
-		"selector": ".highlight, .gist",
-		"text": ["代码可以直接点击复制哟。", "GitHub！我是新手！", "PHP 是最好的语言！"]
+		"selector": ".copy-btn",
+		"text": ["代码可以直接点击复制哟。"]
 	}, {
-		"selector": ".container a[href^='http'], .nav-link .nav-text",
-		"text": ["要去看看 <span>{text}</span> 么？", "去 <span>{text}</span> 逛逛吧。", "到 <span>{text}</span> 看看吧。"]
+		"selector": ".highlight .table-container, .gist",
+		"text": ["GitHub！我是新手！", "PHP 是最好的语言！"]
 	}, {
 		"selector": "a[href^='mailto']",
 		"text": ["邮件我会及时回复的！", "点击就可以发送邮件啦～"]
@@ -92,6 +95,12 @@
 	}, {
 		"selector": "a[itemprop='discussionUrl']",
 		"text": ["要去看看评论吗？"]
+	}, {
+		"selector": ".beian a",
+		"text": ["我也是有户口的人哦。", "我的主人可是遵纪守法的好主人。"]
+	}, {
+		"selector": ".container a[href^='http'], .nav-link .nav-text",
+		"text": ["要去看看 <span>{text}</span> 么？", "去 <span>{text}</span> 逛逛吧。", "到 <span>{text}</span> 看看吧。"]
 	}, {
 		"selector": ".back-to-top",
 		"text": ["点它就可以回到顶部啦！", "又回到最初的起点～", "要回到开始的地方么？"]
