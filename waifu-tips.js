@@ -18,11 +18,11 @@ function loadWidget(config) {
 			<canvas id="live2d" width="800" height="800"></canvas>
 			<div id="waifu-tool">
 				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-weibo"></span>
+				<span class="fab fa-lg fa-weibo"></span>
 				<span class="fa fa-lg fa-female"></span>
 				<span class="fa fa-lg fa-street-view"></span>
 				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-github"></span>
+				<span class="fab fa-lg fa-github"></span>
 				<span class="fa fa-lg fa-power-off"></span>
 			</div>
 		</div>`);
